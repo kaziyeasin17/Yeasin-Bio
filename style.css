@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    background-color: #0f0f1a;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.card {
+    background-color: #1a1a2e;
+    padding: 25px;
+    border-radius: 20px;
+    border: 2px solid #8a2be2;
+    text-align: center;
+    /* === পরিবর্তন: box-shadow এবং border উভয়ের জন্যই অ্যানিমেশন === */
+    animation: pulsate 3s infinite;
+    margin-bottom: 25px;
+}
+
+/* --- Bio Section Styles --- */
+.header p { font-weight: bold; color: #4caf50; }
+.profile-pic-container { margin-bottom: 25px; }
+.profile-pic-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #8a2be2;
+    object-fit: cover;
+    /* === পরিবর্তন: ছবির বর্ডারেও অ্যানিমেশন যোগ করা হলো === */
+    animation: pulsate 3s infinite;
+}
+.info-section { text-align: left; padding: 0 5px; }
+.info-item { display: flex; align-items: center; margin-bottom: 15px; font-size: 0.95em; }
+.info-item i { width: 30px; margin-right: 10px; color: #a75ff1; text-align: center; }
+.info-item .label { width: 100px; font-weight: bold; color: #ccc; flex-shrink: 0; }
+.info-item .value { font-weight: bold; color: white; }
+
+/* "WELCOME TO MY BIO" লেখার জন্য স্টাইল */
+.header h1 {
+    position: relative;
+    font-size: 1.5em;
+    color: #e0e0e0;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: transparent;
+    z-index: 1;
+    overflow: hidden;
+    margin: 5px 0 20px 0;
+}
+
+.header h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red) border-box;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    background-size: 400%;
+    animation: border-animation 4s linear infinite;
+}
+
+/* --- Support Section Styles --- */
+.support-section h2 { margin-top: 0; }
+.contact-btn { display: block; width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 10px; text-decoration: none; font-size: 1.2em; font-weight: bold; color: white; transition: transform 0.2s; }
+.contact-btn:hover { transform: scale(1.05); }
+.contact-btn i { margin-right: 10px; }
+.msg-btn { background-color: #007bff; }
+.tlg-btn { background-color: #28a8e9; }
+.wpp-btn { background-color: #25d366; }
+.email-text { margin-top: 20px; color: #ccc; }
+
+/* --- Team Section Styles --- */
+.team-section h2 { color: #00e5ff; margin-top: 0; font-size: 1.3em; }
+.team-section p { font-weight: 600; margin-bottom: 20px; }
+.team-section .team-info span { display: block; margin-bottom: 10px; font-size: 1.1em; text-align: left; }
+.team-section .team-info i { margin-right: 10px; color: #00e5ff; }
+
+/* --- Services Section Styles --- */
+.services-section h2 { font-size: 1.2em; color: #00e5ff; }
+.services-section ul { list-style: none; padding: 0; text-align: left; }
+.services-section li {
+    position: relative;
+    background: #1a1a2e;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.services-section li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #8a2be2, #00e5ff, #8a2be2) border-box;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    background-size: 300%;
+    animation: border-animation 6s linear infinite;
+    z-index: -1;
+}
+.services-section li i { color: #fff; margin-right: 10px; }
+
+
+/* --- Animations --- */
+/* === পরিবর্তন: box-shadow এবং border উভয়ের জন্য অ্যানিমেশন === */
+@keyframes pulsate {
+    0% {
+        box-shadow: 0 0 15px #8a2be2;
+        border-color: #8a2be2;
+    }
+    50% {
+        box-shadow: 0 0 25px #c077ff;
+        border-color: #c077ff;
+    }
+    100% {
+        box-shadow: 0 0 15px #8a2be2;
+        border-color: #8a2be2;
+    }
+}
+
+@keyframes border-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
